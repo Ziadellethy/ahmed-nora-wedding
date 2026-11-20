@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أحمد &amp; نورا — دعوة الفرح | ١٧ ديسمبر ٢٠٢٦</title>
+<meta name="description" content="حكاية حب.. وبداية عمر جديد. بنعزمكم تشاركونا أجمل ليلة في حياتنا: الخميس ١٧ ديسمبر ٢٠٢٦، قاعة الماسة، السويس.">
+<meta property="og:title" content="أحمد &amp; نورا — دعوة الفرح">
+<meta property="og:description" content="حكاية حب.. وبداية عمر جديد. بنعزمكم تشاركونا أجمل ليلة في حياتنا: الخميس ١٧ ديسمبر ٢٠٢٦، قاعة الماسة، السويس.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ahmed-norawedding.vercel.app/">
+<meta property="og:image" content="https://ahmed-norawedding.vercel.app/assets/hero-rings.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url('./assets/fonts/cormorant-500-italic-latin.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url('./assets/fonts/cormorant-500-normal-latin.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url('./assets/fonts/cormorant-500-normal-latin.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:700;font-display:swap;src:url('./assets/fonts/cormorant-500-normal-latin.woff2') format('woff2');}
+@font-face{font-family:'Noto Naskh Arabic';font-style:normal;font-weight:400;font-display:swap;src:url('./assets/fonts/naskh-400-normal-arabic.woff2') format('woff2');}
+@font-face{font-family:'Noto Naskh Arabic';font-style:normal;font-weight:600;font-display:swap;src:url('./assets/fonts/naskh-400-normal-arabic.woff2') format('woff2');}
+@font-face{font-family:'Noto Naskh Arabic';font-style:normal;font-weight:700;font-display:swap;src:url('./assets/fonts/naskh-400-normal-arabic.woff2') format('woff2');}
+
+:root{
+  --wed-ivory:#FFFCF7; --wed-blush:#FCE8EC; --wed-champ:#F5E6CE;
+  --wed-rose:#e07a98; --wed-burg:#a14561; --wed-burgdeep:#7d3149;
+  --wed-ink:#4a3a3a; --wed-ink2:#8a736c;
+  --wed-gold:#c9a96a; --wed-golddeep:#a8873f; --wed-line:#ead9bd;
+  --wed-gg:linear-gradient(135deg,#a8873f,#e8d3a2 45%,#cfa55e);
+  --wed-serif:'Cormorant Garamond','Times New Roman',serif;
+  --wed-ar:'Noto Naskh Arabic','Geeza Pro','Traditional Arabic',serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--wed-ivory);color:var(--wed-ink);font-family:var(--wed-ar);line-height:1.9;overflow-x:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}
+.wed-fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30}
+.wed-sec{max-width:680px;margin:0 auto;padding:3.6rem 1.25rem;text-align:center;scroll-margin-top:1rem;position:relative;z-index:1}
+.wed-band{position:relative;z-index:1}
+.wed-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.3rem;padding:.85rem 1rem;border-bottom:1px solid var(--wed-line);background:var(--wed-ivory);position:relative;z-index:2}
+.wed-nav a{color:var(--wed-golddeep);text-decoration:none;font-size:.92rem;font-weight:600}
+.wed-nav a:hover{color:var(--wed-burg)}
+.wed-hero{padding-top:3.2rem;background:radial-gradient(60% 40% at 50% 0%,var(--wed-blush) 0%,transparent 70%),var(--wed-ivory)}
+.wed-verse{color:var(--wed-burg);font-size:1.02rem;line-height:2.2;max-width:36ch;margin:0 auto .4rem}
+.wed-verse-src{display:block;font-size:.82rem;color:var(--wed-ink2);margin-bottom:1.6rem}
+.wed-hook{color:var(--wed-ink);font-size:1.35rem;font-weight:700;margin:0 0 .3rem}
+.wed-sub{color:var(--wed-ink2);margin:0 auto 1.2rem;max-width:32ch}
+.wed-names-en{font-family:var(--wed-serif);font-weight:600;direction:ltr;font-size:clamp(2.3rem,11vw,4rem);letter-spacing:.1em;line-height:1.15;background:var(--wed-gg);-webkit-background-clip:text;background-clip:text;color:transparent;margin:.4rem 0 0}
+.wed-amp{font-style:italic;padding:0 .15em}
+.wed-names-ar{color:var(--wed-burg);font-size:clamp(1.7rem,7vw,2.4rem);font-weight:700;margin:.2rem 0 1rem}
+.wed-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:1rem auto;max-width:260px}
+.wed-rule::before,.wed-rule::after{content:'';height:1px;flex:1;background:var(--wed-gold);opacity:.55}
+.wed-rule i{color:var(--wed-gold);font-style:normal;font-size:.9rem}
+.wed-arch{width:min(320px,84%);display:block;margin:1.2rem auto;border-radius:999px 999px 22px 22px;border:1px solid var(--wed-gold);box-shadow:0 18px 40px rgba(161,69,97,.16),inset 0 0 0 6px #fff}
+.wed-date-ar{font-size:1.45rem;font-weight:700;color:var(--wed-ink);margin:1rem 0 0}
+.wed-date-en{font-family:var(--wed-serif);letter-spacing:.32em;color:var(--wed-golddeep);direction:ltr;margin:.2rem 0;font-size:1.05rem}
+.wed-venue-line{color:var(--wed-ink2);margin:.2rem 0 1rem;font-size:1.05rem}
+.wed-msg{max-width:30ch;margin:0 auto;color:var(--wed-ink);font-size:1.08rem}
+.wed-band-count{background:linear-gradient(160deg,var(--wed-blush),var(--wed-champ))}
+.wed-h{font-size:1.7rem;font-weight:700;margin:0 0 .4rem}
+.wed-h-burg{color:var(--wed-burg)}
+.wed-h-gold{background:var(--wed-gg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wed-cd{display:flex;gap:.5rem;justify-content:center;direction:rtl;margin-top:1.4rem;flex-wrap:nowrap}
+.wed-cd>div{background:#fff;border:1px solid var(--wed-gold);border-radius:16px;min-width:60px;padding:.75rem .3rem .55rem;box-shadow:0 8px 20px rgba(161,69,97,.10)}
+.wed-cd b{display:block;font-size:1.5rem;color:var(--wed-burg);line-height:1.2}
+.wed-cd small{color:var(--wed-ink2);font-size:.82rem}
+.wed-cd-done{font-size:1.3rem;color:var(--wed-burg);font-weight:700}
+.wed-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.6rem;text-align:right}
+@media (max-width:340px){.wed-grid{grid-template-columns:1fr}}
+.wed-info{background:#fff;border:1px solid var(--wed-line);border-radius:16px;padding:.95rem 1rem;display:flex;gap:.85rem;align-items:center}
+.wed-ico{width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:var(--wed-blush);border:1px solid var(--wed-line);display:flex;align-items:center;justify-content:center;color:var(--wed-golddeep)}
+.wed-ico svg{width:22px;height:22px}
+.wed-info small{display:block;color:var(--wed-ink2);font-size:.8rem}
+.wed-info b{color:var(--wed-ink);font-size:1.02rem;font-weight:700}
+.wed-actions{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;margin-top:1.6rem}
+.wed-btn{border:1px solid var(--wed-gold);background:transparent;color:var(--wed-golddeep);padding:.8rem 1.6rem;border-radius:999px;font-weight:700;font-family:var(--wed-ar);text-decoration:none;font-size:1rem;line-height:1.5;transition:transform .2s,filter .2s;display:inline-block;min-height:44px;cursor:pointer}
+.wed-btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.wed-btn-solid{background:var(--wed-gg);color:#3d2c10;border-color:transparent}
+.wed-btn-white{border-color:#ffffffaa;color:#fff}
+.wed-photos{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:2rem}
+@media (max-width:560px){.wed-photos{grid-template-columns:1fr}}
+.wed-photos img{width:100%;display:block;border-radius:16px;border:1px solid var(--wed-line)}
+.wed-caption{font-size:.85rem;color:var(--wed-ink2);margin-top:.6rem}
+.wed-rules{text-align:right;margin-top:1.6rem;display:grid;gap:.7rem}
+.wed-rule-card{background:#fff;border:1px solid var(--wed-line);border-inline-start:4px solid var(--wed-gold);border-radius:12px;padding:.85rem 1.1rem}
+.wed-rule-card b{color:var(--wed-burg)}
+.wed-band-rsvp{background:linear-gradient(165deg,var(--wed-burg),var(--wed-burgdeep));color:#fff}
+.wed-band-rsvp .wed-sub{color:#f6dfe6}
+.wed-rsvp-note{margin-top:1.4rem;font-size:.95rem;color:#f3d9e0}
+.wed-band-rsvp .wed-rule::before,.wed-band-rsvp .wed-rule::after{background:#e8d3a2}
+.wed-band-rsvp .wed-rule i{color:#e8d3a2}
+.wed-fin-big{font-size:1.9rem;font-weight:700;color:var(--wed-burg);margin:0 0 .3rem}
+.wed-fin-names{font-family:var(--wed-serif);direction:ltr;font-size:2rem;letter-spacing:.12em;background:var(--wed-gg);-webkit-background-clip:text;background-clip:text;color:transparent;margin:.6rem 0 0}
+.wed-fin-date{font-family:var(--wed-serif);letter-spacing:.3em;color:var(--wed-golddeep);direction:ltr;margin:.2rem 0 .8rem}
+.wed-foot{border-top:1px solid var(--wed-line);padding:1.2rem 1rem 1rem;text-align:center;color:var(--wed-ink2);font-size:.9rem;position:relative;z-index:1}
+.wed-closing{padding:0 1.2rem 1.4rem;text-align:center;color:var(--wed-ink2);font-size:.8rem;position:relative;z-index:1}
+@keyframes wedRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.wed-rise{animation:wedRise .9s ease both}
+.wed-rise-1{animation-delay:.12s}
+.wed-rise-2{animation-delay:.26s}
+.wed-rise-3{animation-delay:.4s}
+@media (prefers-reduced-motion:reduce){.wed-rise{animation:none}}
+</style>
+</head>
+<body>
+<canvas class="wed-fx" id="fx" aria-hidden="true"></canvas>
+
+<nav class="wed-nav" aria-label="أقسام الدعوة">
+  <a href="#top">الدعوة</a>
+  <a href="#count">العد التنازلي</a>
+  <a href="#details">التفاصيل</a>
+  <a href="#rules">التعليمات</a>
+  <a href="#rsvp">تأكيد الحضور</a>
+</nav>
+
+<section class="wed-sec wed-hero" id="top">
+  <p class="wed-verse wed-rise">﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً﴾</p>
+  <span class="wed-verse-src wed-rise">سورة الروم، الآية ٢١</span>
+  <h1 class="wed-hook wed-rise">حكاية حب.. وبداية عمر جديد</h1>
+  <p class="wed-sub wed-rise">بكل الحب والسعادة، بنعزمكم تشاركونا أجمل ليلة في حياتنا</p>
+  <div class="wed-rule wed-rise" aria-hidden="true"><i>✦</i></div>
+  <p class="wed-names-en wed-rise-1"><span>Ahmed</span><span class="wed-amp">&amp;</span><span>Nora</span></p>
+  <p class="wed-names-ar wed-rise-1">أحمد &amp; نورا</p>
+  <img class="wed-arch wed-rise-2" src="./assets/hero-rings.jpg" alt="دبلتين من الذهب على ساتان أبيض حواليهم ورد وردي وعنبري">
+  <p class="wed-date-ar wed-rise-2">الخميس ١٧ ديسمبر ٢٠٢٦</p>
+  <p class="wed-date-en wed-rise-2">17 . 12 . 2026</p>
+  <p class="wed-venue-line wed-rise-3">قاعة الماسة، السويس</p>
+  <p class="wed-msg wed-rise-3">وجودكم وسطنا مش مجرد حضور.. ده جزء من فرحتنا.</p>
+</section>
+
+<div class="wed-band wed-band-count" id="count">
+  <section class="wed-sec">
+    <h2 class="wed-h wed-h-burg">الفرحة قربت.. مستنيينكم ❤️</h2>
+    <div class="wed-rule" aria-hidden="true"><i>✦</i></div>
+    <div class="wed-cd" id="cd" role="timer" aria-live="off">
+      <div><b id="cdD">٠</b><small>يوم</small></div>
+      <div><b id="cdH">٠</b><small>ساعة</small></div>
+      <div><b id="cdM">٠</b><small>دقيقة</small></div>
+      <div><b id="cdS">٠</b><small>ثانية</small></div>
+    </div>
+  </section>
+</div>
+
+<section class="wed-sec" id="details">
+  <h2 class="wed-h wed-h-gold">تفاصيل الليلة</h2>
+  <div class="wed-rule" aria-hidden="true"><i>✦</i></div>
+  <div class="wed-grid">
+    <div class="wed-info"><span class="wed-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14.5" r="5.5"/><circle cx="15" cy="9.5" r="5.5"/></svg></span><span><small>العريس</small><b>أحمد</b></span></div>
+    <div class="wed-info"><span class="wed-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-8-5.2-8-10.6A4.4 4.4 0 0 1 12 6.9a4.4 4.4 0 0 1 8 3c0 5.4-8 10.6-8 10.6z"/></svg></span><span><small>العروسة</small><b>نورا</b></span></div>
+    <div class="wed-info"><span class="wed-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span><span><small>التاريخ</small><b>الخميس ١٧ ديسمبر ٢٠٢٦</b></span></div>
+    <div class="wed-info"><span class="wed-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span><small>المعاد</small><b>٧:٠٠ مساءً</b></span></div>
+    <div class="wed-info"><span class="wed-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 20.5v-9a7.5 7.5 0 0 1 15 0v9"/><path d="M9.5 20.5v-5a2.5 2.5 0 0 1 5 0v5"/><path d="M2.5 20.5h19"/></svg></span><span><small>القاعة</small><b>قاعة الماسة</b></span></div>
+    <div class="wed-info"><span class="wed-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-10.5a7 7 0 0 1 14 0C19 15 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg></span><span><small>العنوان</small><b>السويس</b></span></div>
+  </div>
+  <div class="wed-actions">
+    <a class="wed-btn wed-btn-solid" href="https://www.google.com/maps/search/?api=1&amp;query=El+masa+wedding+hall&amp;query_place_id=ChIJdyUkymIlVhQRrIBkWJYbCko" target="_blank" rel="noopener noreferrer">افتح اللوكيشن 📍</a>
+    <a class="wed-btn" id="calBtn" href="#" target="_blank" rel="noopener noreferrer">ضيف المعاد للتقويم 🗓️</a>
+  </div>
+  <div class="wed-photos">
+    <img src="./assets/venue.jpg" alt="قاعة أفراح فاخرة بثريات كريستال وطاولات مستديرة مزينة بالورود" loading="lazy">
+    <img src="./assets/florals.jpg" alt="تنسيق ورد عنبري ووردي بأوراق ذهبية في فازة فضية" loading="lazy">
+  </div>
+  <p class="wed-caption">الصور توضيحية للأجواء والديكور، مش صور للقاعة نفسها.</p>
+</section>
+
+<section class="wed-sec" id="rules">
+  <h2 class="wed-h wed-h-gold">تعليمات الحضور</h2>
+  <p class="wed-sub">برجاء القراءة قبل الدخول</p>
+  <div class="wed-rules">
+    <div class="wed-rule-card"><b>المعاد:</b> ياريت نلتزم بالمعاد المكتوب، عشان البرنامج يبدأ في وقته ومتفوتكوش أول الفرح.</div>
+    <div class="wed-rule-card"><b>المرافقين:</b> الدعوة بالأسماء المؤكدة بس. لو حابب تصطحب حد زيادة، كلّمنا الأول على واتساب.</div>
+    <div class="wed-rule-card"><b>أي استفسار:</b> لو محتاج تفاصيل عن المكان أو طريقة الوصول، ابعتلنا رسالة واتساب وهنرد عليك.</div>
+  </div>
+</section>
+
+<div class="wed-band wed-band-rsvp" id="rsvp">
+  <section class="wed-sec">
+    <h2 class="wed-h">تأكيد الحضور</h2>
+    <p class="wed-sub">عرّفنا هتشرفنا ولا لأ، عشان نجهز لك مكانك ❤️</p>
+    <div class="wed-rule" aria-hidden="true"><i>✦</i></div>
+    <div class="wed-actions">
+      <a class="wed-btn wed-btn-solid" id="waYes" href="#" target="_blank" rel="noopener noreferrer">أيوه، هشرّفكم 🌸</a>
+      <a class="wed-btn wed-btn-white" id="waNo" href="#" target="_blank" rel="noopener noreferrer">للأسف مش هقدر أحضر</a>
+    </div>
+    <p class="wed-rsvp-note">التأكيد بيوصلنا على واتساب.. متنساش تكتب اسمك وعدد المرافقين في الرسالة.</p>
+  </section>
+</div>
+
+<section class="wed-sec">
+  <p class="wed-fin-big">فرحتنا هتكمل بوجودكم</p>
+  <p class="wed-sub">مستنيينكم تنورونا</p>
+  <div class="wed-rule" aria-hidden="true"><i>✦</i></div>
+  <p class="wed-fin-names">Ahmed &amp; Nora</p>
+  <p class="wed-fin-date">17 . 12 . 2026</p>
+  <div class="wed-actions">
+    <button class="wed-btn" id="copyBtn" type="button">انسخ لينك الدعوة 🔗</button>
+    <a class="wed-btn" href="#top">ارجع للأول ⬆️</a>
+  </div>
+</section>
+
+<footer class="wed-foot">صُنع بكل حب لأحمد ونورا 🤍</footer>
+<p class="wed-closing">آخر تحديث للتفاصيل يوم ٢٠ نوفمبر ٢٠٢٦. تأكيد الحضور بيتم عن طريق واتساب فقط.</p>
+
+<script>
+(function () {
+  var TARGET = new Date('2026-12-17T19:00:00+02:00').getTime();
+  var AR = function (n) { return n.toLocaleString('ar-EG'); };
+
+  // links (kept in JS to keep encoding exact)
+  var WA_YES = "https://wa.me/201003771765?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%D8%8C+%D8%A3%D9%86%D8%A7+%D8%A3%D8%A4%D9%83%D8%AF+%D8%AD%D8%B6%D9%88%D8%B1%D9%8A+%D9%81%D8%B1%D8%AD+%D8%A3%D8%AD%D9%85%D8%AF+%D9%88%D9%86%D9%88%D8%B1%D8%A7+%D9%8A%D9%88%D9%85+%D8%A7%D9%84%D8%AE%D9%85%D9%8A%D8%B3+%D9%A1%D9%A7+%D8%AF%D9%8A%D8%B3%D9%85%D8%A8%D8%B1+%D9%A2%D9%A0%D9%A2%D9%A6+%D9%81%D9%8A+%D9%82%D8%A7%D8%B9%D8%A9+%D8%A7%D9%84%D9%85%D8%A7%D8%B3%D8%A9+%F0%9F%8C%B8%0A%D8%A7%D8%B3%D9%85%D9%8A%3A+%0A%D8%B9%D8%AF%D8%AF+%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D9%81%D9%82%D9%8A%D9%86%3A+";
+  var WA_NO = "https://wa.me/201003771765?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%D8%8C+%D9%84%D9%84%D8%A3%D8%B3%D9%81+%D9%85%D8%B4+%D9%87%D9%82%D8%AF%D8%B1+%D8%A3%D8%AD%D8%B6%D8%B1+%D9%81%D8%B1%D8%AD+%D8%A3%D8%AD%D9%85%D8%AF+%D9%88%D9%86%D9%88%D8%B1%D8%A7+%D9%8A%D9%88%D9%85+%D9%A1%D9%A7+%D8%AF%D9%8A%D8%B3%D9%85%D8%A8%D8%B1.+%D8%A3%D9%84%D9%81+%D9%85%D8%A8%D8%B1%D9%88%D9%83+%D9%84%D9%84%D8%B9%D8%B1%D9%88%D8%B3%D9%8A%D9%86+%E2%9D%A4%EF%B8%8F%0A%D8%A7%D8%B3%D9%85%D9%8A%3A+";
+  document.getElementById('waYes').href = WA_YES;
+  document.getElementById('waNo').href = WA_NO;
+  document.getElementById('calBtn').href =
+    'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    '&text=' + encodeURIComponent('فرح أحمد ونورا') +
+    '&dates=20261217T170000Z/20261217T210000Z' +
+    '&details=' + encodeURIComponent('دعوة فرح أحمد ونورا، قاعة الماسة، السويس') +
+    '&location=' + encodeURIComponent('قاعة الماسة، السويس');
+
+  // countdown
+  var cdD = document.getElementById('cdD'), cdH = document.getElementById('cdH'),
+      cdM = document.getElementById('cdM'), cdS = document.getElementById('cdS');
+  function tick() {
+    var diff = TARGET - Date.now();
+    if (diff <= 0) {
+      document.getElementById('cd').innerHTML = '<p class="wed-cd-done">الفرحة تمت.. بارك الله لهما وبارك عليهما وجمع بينهما في خير 🤍</p>';
+      return;
+    }
+    var s = Math.floor(diff / 1000);
+    cdD.textContent = AR(Math.floor(s / 86400));
+    cdH.textContent = AR(Math.floor((s % 86400) / 3600));
+    cdM.textContent = AR(Math.floor((s % 3600) / 60));
+    cdS.textContent = AR(s % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // copy link
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var btn = this;
+    var done = function () { btn.textContent = 'تم النسخ ✓'; setTimeout(function () { btn.textContent = 'انسخ لينك الدعوة 🔗'; }, 2200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(location.href).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = location.href;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+
+  // falling petals
+  var canvas = document.getElementById('fx');
+  var ctx = canvas.getContext('2d');
+  var w = canvas.width = window.innerWidth;
+  var h = canvas.height = window.innerHeight;
+  var colors = ['#e8a0b4', '#e07a98', '#c96b87', '#f3c6d1', '#d9b36f'];
+  var count = Math.min(90, Math.max(28, Math.floor((w * h) / 26000)));
+  var petals = [];
+  for (var i = 0; i < count; i++) {
+    petals.push({
+      x: Math.random() * w, y: Math.random() * h,
+      r: 4.5 + Math.random() * 6.5,
+      a: Math.random() * Math.PI * 2,
+      va: (Math.random() - 0.5) * 0.02,
+      vy: 0.45 + Math.random() * 0.95,
+      sway: 18 + Math.random() * 30,
+      phase: Math.random() * Math.PI * 2,
+      c: colors[Math.floor(Math.random() * colors.length)],
+      o: 0.32 + Math.random() * 0.4
+    });
+  }
+  var t0 = performance.now();
+  function draw(now) {
+    var t = (now - t0) / 1000;
+    ctx.clearRect(0, 0, w, h);
+    for (var j = 0; j < petals.length; j++) {
+      var p = petals[j];
+      p.y += p.vy;
+      p.a += p.va;
+      var x = p.x + Math.sin(t * 0.8 + p.phase) * p.sway;
+      if (p.y - 24 > h) { p.y = -24; p.x = Math.random() * w; }
+      ctx.save();
+      ctx.translate(x, p.y);
+      ctx.rotate(p.a + Math.sin(t + p.phase) * 0.4);
+      ctx.globalAlpha = p.o;
+      ctx.fillStyle = p.c;
+      ctx.beginPath();
+      ctx.moveTo(0, -p.r);
+      ctx.bezierCurveTo(p.r, -p.r, p.r, p.r * 0.65, 0, p.r);
+      ctx.bezierCurveTo(-p.r, p.r * 0.65, -p.r, -p.r, 0, -p.r);
+      ctx.fill();
+      ctx.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', function () {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  });
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
