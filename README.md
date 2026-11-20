@@ -6,3 +6,5 @@ Static wedding invitation site. Live at https://ahmed-norawedding.vercel.app/
 - `assets/` — images and fonts
 
 Deployed on Vercel (project `ahmed-nora-wedding`). Pushes to `main` deploy automatically.
+
+Connected to Vercel: pushes to `main` deploy automatically to production.
