@@ -101,9 +101,53 @@ a{color:inherit}
 .wed-rise-2{animation-delay:.26s}
 .wed-rise-3{animation-delay:.4s}
 @media (prefers-reduced-motion:reduce){.wed-rise{animation:none}}
+
+/* intro gate */
+.wed-intro{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 100% at 50% 0%,#fff6ec 0%,#FCE8EC 55%,#f3d3dc 100%);display:flex;align-items:center;justify-content:center;transition:opacity .9s ease}
+.wed-intro.wed-intro-out{opacity:0;pointer-events:none}
+.wed-intro-loader{display:flex;flex-direction:column;align-items:center;gap:1rem;color:var(--wed-burg);font-size:1.05rem}
+.wed-ring{width:44px;height:44px;border-radius:50%;border:3px solid #e9c3cf;border-top-color:var(--wed-burg);animation:wedspin 1s linear infinite}
+@keyframes wedspin{to{transform:rotate(360deg)}}
+.wed-intro-card{text-align:center;padding:2rem 1.5rem;max-width:340px}
+.wed-intro-env{font-size:4rem;animation:wedfloat 2.6s ease-in-out infinite}
+@keyframes wedfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.wed-intro-names{font-family:var(--wed-serif);font-size:2.2rem;font-weight:700;color:var(--wed-burgdeep);margin:.6rem 0 .2rem}
+.wed-intro-sub{color:var(--wed-ink2);margin-bottom:1.4rem}
+/* music toggle */
+.wed-music{position:fixed;bottom:1.1rem;left:1.1rem;z-index:80;width:46px;height:46px;border-radius:50%;border:1px solid var(--wed-line);background:rgba(255,252,247,.92);color:var(--wed-burg);font-size:1.25rem;cursor:pointer;box-shadow:0 4px 14px rgba(125,49,73,.18);display:flex;align-items:center;justify-content:center}
+.wed-music.wed-music-on{animation:wedpulse 2s ease-in-out infinite}
+@keyframes wedpulse{0%,100%{box-shadow:0 4px 14px rgba(125,49,73,.18)}50%{box-shadow:0 4px 20px rgba(161,69,97,.45)}}
+/* toast */
+.wed-toast{position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(20px);z-index:90;background:var(--wed-burgdeep);color:#fff;padding:.8rem 1.4rem;border-radius:999px;font-size:.95rem;opacity:0;pointer-events:none;transition:all .45s ease;max-width:88vw;text-align:center}
+.wed-toast.wed-toast-show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* confetti canvas */
+.wed-burst{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:70}
+/* rsvp form */
+.wed-form{display:flex;flex-direction:column;gap:.9rem;max-width:400px;margin:0 auto 1.6rem;text-align:right}
+.wed-form label{font-size:.95rem;color:#f9e8ed}
+.wed-form input,.wed-form select{width:100%;margin-top:.3rem;padding:.7rem .9rem;border-radius:12px;border:1px solid #d9a7b6;background:rgba(255,255,255,.95);color:var(--wed-ink);font-family:var(--wed-ar);font-size:1rem;text-align:right}
+.wed-form input:focus,.wed-form select:focus{outline:2px solid var(--wed-gold)}
+.wed-form-msg{margin:.2rem 0 0;font-size:1rem;min-height:1.6em}
+.wed-form-msg.ok{color:#c8f0c8}
+.wed-form-msg.err{color:#ffd9d9}
+.wed-secret{display:inline-block;cursor:default;opacity:.35;font-size:.8em;vertical-align:middle;margin:0 .3rem;transition:opacity .3s}
+.wed-secret:hover{opacity:.7}
 </style>
 </head>
 <body>
+<div id="intro" class="wed-intro">
+  <div class="wed-intro-loader" id="introLoader"><span class="wed-ring"></span>بنجهز دعوتك…</div>
+  <div class="wed-intro-card" id="introCard" hidden>
+    <div class="wed-intro-env">💌</div>
+    <p class="wed-intro-names">أحمد &amp; نورا</p>
+    <p class="wed-intro-sub">وصلتك دعوة لأجمل ليلة في حياتنا</p>
+    <button id="openBtn" class="wed-btn wed-btn-solid" type="button">افتح دعوتك ❤️</button>
+  </div>
+</div>
+<canvas class="wed-burst" id="burst"></canvas>
+<button id="musicBtn" class="wed-music" type="button" aria-label="تشغيل الموسيقى">♪</button>
+<audio id="bgm" src="assets/canon-in-d.mp3" preload="none" loop></audio>
+<div id="toast" class="wed-toast" role="status"></div>
 <canvas class="wed-fx" id="fx" aria-hidden="true"></canvas>
 
 <nav class="wed-nav" aria-label="أقسام الدعوة">
@@ -182,6 +226,28 @@ a{color:inherit}
     <h2 class="wed-h">تأكيد الحضور</h2>
     <p class="wed-sub">عرّفنا هتشرفنا ولا لأ، عشان نجهز لك مكانك ❤️</p>
     <div class="wed-rule" aria-hidden="true"><i>✦</i></div>
+    <div id="rsvpGate" style="margin-bottom:1.4rem">
+      <p class="wed-rsvp-note" style="margin:0 0 1rem">قبل ما تسجل اسمك، خد دقيقة تقرا آداب الفرح اللي فوق.. ولو موافق، اضغط هنا 👇</p>
+      <button class="wed-btn wed-btn-white" id="agreeBtn" type="button">أوافق على جميع الشروط والأحكام</button>
+    </div>
+    <form id="rsvpForm" class="wed-form" hidden novalidate>
+      <label>الاسم بالكامل
+        <input id="rsvpName" type="text" maxlength="100" placeholder="اكتب اسمك الثلاثي" autocomplete="name">
+      </label>
+      <label>عدد المرافقين
+        <select id="rsvpCount">
+          <option value="0" selected>بدون مرافقين (أنا بس)</option>
+          <option value="1">١ مرافق</option>
+          <option value="2">٢ مرافقين</option>
+          <option value="3">٣ مرافقين</option>
+          <option value="4">٤ مرافقين</option>
+          <option value="5">٥ مرافقين</option>
+        </select>
+      </label>
+      <button class="wed-btn wed-btn-white" id="rsvpSubmit" type="submit">سجّل حضورك 🌸</button>
+      <p id="rsvpMsg" class="wed-form-msg" aria-live="polite"></p>
+    </form>
+    <p class="wed-rsvp-note" style="margin:0 0 .9rem">أو أكد حضورك على واتساب 👇</p>
     <div class="wed-actions">
       <a class="wed-btn wed-btn-solid" id="waYes" href="#" target="_blank" rel="noopener noreferrer">أيوه، هشرّفكم 🌸</a>
       <a class="wed-btn wed-btn-white" id="waNo" href="#" target="_blank" rel="noopener noreferrer">للأسف مش هقدر أحضر</a>
@@ -197,13 +263,15 @@ a{color:inherit}
   <p class="wed-fin-names">Ahmed &amp; Nora</p>
   <p class="wed-fin-date">17 . 12 . 2026</p>
   <div class="wed-actions">
+    <button class="wed-btn" id="shareBtn" type="button">شارك الدعوة 📤</button>
     <button class="wed-btn" id="copyBtn" type="button">انسخ لينك الدعوة 🔗</button>
     <a class="wed-btn" href="#top">ارجع للأول ⬆️</a>
   </div>
 </section>
 
-<footer class="wed-foot">صُنع بكل حب لأحمد ونورا 🤍</footer>
-<p class="wed-closing">آخر تحديث للتفاصيل يوم ٢٠ نوفمبر ٢٠٢٦. تأكيد الحضور بيتم عن طريق واتساب فقط.</p>
+<footer class="wed-foot">صُنع بكل حب لأحمد ونورا <span id="secretStar" class="wed-secret" aria-hidden="true">✦</span> 🤍</footer>
+<p class="wed-closing">آخر تحديث للتفاصيل يوم ٢١ نوفمبر ٢٠٢٦.</p>
+<p class="wed-closing" style="font-size:.75rem;opacity:.6">الموسيقى: Canon in D Major — Kevin MacLeod (incompetech.com)، مرخّصة تحت CC BY 4.0</p>
 
 <script>
 (function () {
@@ -307,6 +375,138 @@ a{color:inherit}
     h = canvas.height = window.innerHeight;
   });
   requestAnimationFrame(draw);
+
+  // intro gate
+  var intro = document.getElementById('intro'),
+      introLoader = document.getElementById('introLoader'),
+      introCard = document.getElementById('introCard');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function () { introLoader.hidden = true; introCard.hidden = false; }, 1300);
+  document.getElementById('openBtn').addEventListener('click', function () {
+    intro.classList.add('wed-intro-out');
+    document.body.style.overflow = '';
+    setTimeout(function () { intro.remove(); }, 950);
+  });
+
+  // toast helper
+  var toastEl = document.getElementById('toast'), toastTimer = null;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('wed-toast-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('wed-toast-show'); }, 4200);
+  }
+
+  // confetti burst
+  var bc = document.getElementById('burst'), bctx = bc.getContext('2d');
+  function sizeBurst() { bc.width = window.innerWidth; bc.height = window.innerHeight; }
+  sizeBurst();
+  window.addEventListener('resize', sizeBurst);
+  var burstParts = [], burstRunning = false;
+  function burst(x, y) {
+    var cols = ['#e07a98', '#c9a96a', '#a14561', '#f3c6d1', '#e8d3a2', '#7d3149'];
+    for (var i = 0; i < 120; i++) {
+      var a = Math.random() * Math.PI * 2, sp = 3 + Math.random() * 8;
+      burstParts.push({ x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 3,
+        r: 3 + Math.random() * 5, c: cols[i % cols.length], life: 90 + Math.random() * 50,
+        rot: Math.random() * Math.PI, vr: (Math.random() - .5) * .25 });
+    }
+    if (!burstRunning) { burstRunning = true; requestAnimationFrame(burstDraw); }
+  }
+  function burstDraw() {
+    bctx.clearRect(0, 0, bc.width, bc.height);
+    burstParts = burstParts.filter(function (p) { return p.life > 0; });
+    for (var i = 0; i < burstParts.length; i++) {
+      var p = burstParts[i];
+      p.x += p.vx; p.y += p.vy; p.vy += 0.16; p.vx *= 0.985; p.rot += p.vr; p.life--;
+      bctx.save();
+      bctx.translate(p.x, p.y); bctx.rotate(p.rot);
+      bctx.globalAlpha = Math.min(1, p.life / 50);
+      bctx.fillStyle = p.c;
+      bctx.fillRect(-p.r, -p.r / 2, p.r * 2, p.r);
+      bctx.restore();
+    }
+    if (burstParts.length) { requestAnimationFrame(burstDraw); }
+    else { burstRunning = false; bctx.clearRect(0, 0, bc.width, bc.height); }
+  }
+
+  // secret easter egg: tap the little ✦ three times
+  var sc = 0, scTimer = null;
+  document.getElementById('secretStar').addEventListener('click', function () {
+    sc++;
+    clearTimeout(scTimer);
+    scTimer = setTimeout(function () { sc = 0; }, 2500);
+    if (sc >= 3) {
+      sc = 0;
+      toast('رسالة سرية: الحقيقة؟ أحمد ونورا متوترين شوية.. بس سعيدين جداً ومستنيينكم 🥹❤️');
+      burst(window.innerWidth / 2, window.innerHeight / 3);
+    }
+  });
+
+  // music toggle
+  var bgm = document.getElementById('bgm'), musicBtn = document.getElementById('musicBtn');
+  musicBtn.addEventListener('click', function () {
+    if (bgm.paused) {
+      bgm.play().then(function () { musicBtn.classList.add('wed-music-on'); musicBtn.textContent = '❚❚'; }).catch(function () { toast('الموسيقى مش شغالة على المتصفح ده'); });
+    } else {
+      bgm.pause();
+      musicBtn.classList.remove('wed-music-on');
+      musicBtn.textContent = '♪';
+    }
+  });
+
+  // native share with copy fallback
+  document.getElementById('shareBtn').addEventListener('click', function () {
+    var data = { title: document.title, text: 'دعوة فرح أحمد ونورا — الخميس ١٧ ديسمبر ٢٠٢٦، قاعة كرستالة، السويس', url: location.href };
+    if (navigator.share) {
+      navigator.share(data).catch(function () {});
+    } else {
+      document.getElementById('copyBtn').click();
+    }
+  });
+
+  // RSVP agree gate + form
+  var gate = document.getElementById('rsvpGate'), form = document.getElementById('rsvpForm');
+  document.getElementById('agreeBtn').addEventListener('click', function () {
+    gate.hidden = true;
+    form.hidden = false;
+    document.getElementById('rsvpName').focus();
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('rsvpName').value.trim(),
+        count = parseInt(document.getElementById('rsvpCount').value, 10) || 0,
+        msg = document.getElementById('rsvpMsg'),
+        btn = document.getElementById('rsvpSubmit');
+    msg.className = 'wed-form-msg';
+    if (name.length < 5 || name.split(/\s+/).filter(Boolean).length < 2) {
+      msg.textContent = 'من فضلك اكتب اسمك الثنائي على الأقل';
+      msg.classList.add('err');
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'بنسجل…';
+    fetch('/api/rsvp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, companions: count })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('bad');
+      return r.json();
+    }).then(function () {
+      msg.textContent = 'استلمنا تأكيدك يا ' + name.split(/\s+/)[0] + ' 🌸 نورتنا!';
+      msg.classList.add('ok');
+      form.reset();
+      toast('شكراً ' + name.split(/\s+/)[0] + '! تأكيدك وصلنا ❤️');
+      burst(window.innerWidth / 2, window.innerHeight / 2);
+    }).catch(function () {
+      msg.textContent = 'حصلت مشكلة في التسجيل.. جرب تاني أو أكد على واتساب';
+      msg.classList.add('err');
+    }).finally(function () {
+      btn.disabled = false;
+      btn.textContent = 'سجّل حضورك 🌸';
+    });
+  });
 })();
 </script>
 </body>
